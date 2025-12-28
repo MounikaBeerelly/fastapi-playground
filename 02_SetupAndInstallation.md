@@ -20,3 +20,18 @@
 4. Install fastapi - `pip install fastapi`
 5. Install uvicorn - `pip install "uvicorn[standard]"`
 6. Deactivate environment - `deactivate`
+
+### How to run the application
+- Run the fastapi application using `uvicorn books:app --reload`
+    - books - name of the file
+    - app - app is an instance of the FastAPI class
+        - It holds:
+            - All routes (endpoints)
+            - Middleware
+            - Startup/shutdown events
+            - Dependencies
+    - Uvicorn runs this object
+    
+- URL of the application - `http://127.0.0.1:8000/`
+- Swagger URL of the application - `http://127.0.0.1:8000/docs`
+
