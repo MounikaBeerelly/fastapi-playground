@@ -15,16 +15,6 @@ books = [
 async def get_message() :
     return {"message" : "Hello fastapi learners..!"}
 
-# -------- GET all the books ----------
-@app.get("/books")
-async def read_all_books() :
-    return {
-        "message" : "books List",
-        "data" : books
-    }
-# -------- GET all the books ----------
-
-
 """
 - Run the fastapi application using `uvicorn books:app --reload`
 
@@ -37,3 +27,19 @@ How app Works (Simple Flow)
 5. Corresponding function runs
 6. Response is returned
 """
+
+# -------- GET all the books ----------
+@app.get("/books")
+async def read_all_books() :
+    return {
+        "message" : "books List",
+        "data" : books
+    }
+# -------- GET the specific book ----------
+@app.get("/books/{book_title}")
+async def read_single_book(book_title: str) :
+    for book in books :
+        # if book.get('title').casefold() == book_title.casefold() :
+        if book.get('title').lower() == book_title.lower() :
+            return book
+
