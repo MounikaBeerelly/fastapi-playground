@@ -70,3 +70,10 @@ async def read_author_category_by_query(book_author : str, category: str) :
 @app.post("/books/create_book/")
 async def create_book(new_book = Body()) :
     books.append(new_book)
+    
+# -------- PUT Method : Update book ------------
+@app.put("/books/update_book")
+async def update_book(updated_book = Body()) :
+    for i in range(len(books)) :
+        if books[i].get('title').lower() == updated_book.get('title').lower() :
+            books[i] = updated_book
