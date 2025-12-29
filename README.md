@@ -38,3 +38,11 @@
 
 #### 5xx Server Status codes
 1. `501: Internal Server Error` - Generic Error Message, when an unexpected issue on the server happened.
+
+### SQLAlchemy
+- SQLAlchemy is a popular Python SQL toolkit and ORM (Object Relational Mapper) used to interact with relational databases (PostgreSQL, MySQL, SQLite, Oracle, SQL Server, etc.) in a clean, Pythonic way.
+- With SQLAlchemy 
+    - Connect to databases
+    - Write SQL queries using Python
+    - Map database tables to Python classes (ORM)
+    - Handle transactions, sessions, and relationships
