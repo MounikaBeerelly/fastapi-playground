@@ -46,3 +46,10 @@
     - Write SQL queries using Python
     - Map database tables to Python classes (ORM)
     - Handle transactions, sessions, and relationships
+
+### Installation of SQLite3 Terminal in Windows :
+1. Open `https://www.sqlite.org/index.html`
+2. Click on Download
+3. Go to **Precompiled Binaries for Windows**
+4. Click on `sqlite-tools-win-x86-3510100.zip
+(4.08 MiB)`

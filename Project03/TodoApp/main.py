@@ -5,3 +5,7 @@ from database import engine
 app = FastAPI()
 
 models.Base.metadata.create_all(bind = engine)
+
+@app.get("/")
+def root():
+    return {"status": "Todo API running"}
