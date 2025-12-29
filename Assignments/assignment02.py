@@ -3,9 +3,10 @@ Add a new field to Book and BookRequest called published_date: int (for example,
 Enhance each Book to now have a published_date
 """
 
-from fastapi import Body, FastAPI
+from fastapi import Body, FastAPI, Query
 from pydantic import BaseModel, Field
 from typing import Optional
+from starlette import status
 
 app = FastAPI()
 
@@ -55,8 +56,8 @@ model_config = {
     }
 }
 
-@app.get("/books/publish/")
-async def read_books_by_publish_date(published_date : int) :
+@app.get("/books/publish/", status_code=status.HTTP_200_OK)
+async def read_books_by_publish_date(published_date : int = Query(gt = 1999, lt = 2031)) :
     book_to_return = []
     for book in BOOKS :
         if book.published_date == published_date :
