@@ -10,3 +10,6 @@
 - Example :
     - 127.0.0.1:8000/books/?category=math
 
+### What is Pydantics ?
+- Python library that is used for data modeling, data parsing and has efficient error handling.
+- Pydantics is commonly used as a resource for data validation and how to handle data coming to our FastAPI application.
