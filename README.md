@@ -53,3 +53,54 @@
 3. Go to **Precompiled Binaries for Windows**
 4. Click on `sqlite-tools-win-x86-3510100.zip
 (4.08 MiB)`
+
+### What is a JSON Web Token ?
+- JSON web token is a self-contained way to securely transmit data and information between two parties using a JSON object.
+- JSON web tokens can be trusted because each JWT can be digitally signed, which in return allows the server to know if the JWT has been changed at all.
+- JWT should be used when dealing with authorization.
+- JWT is a great way fro information to be exchanges between the server and client.
+
+#### JSON Web token structure :
+- A JSON web token is created of three seperate parts seperated by dots (.) which include :
+    - Header : (a)
+    - Payload : (b)
+    - Signature : (c)
+        - `aaaaaaaa.bbbbbbbb.cccccccc`
+- **JWT Header**
+    - A JWT header usually consists of two parts :
+        - (alg) the algorithm for signing
+        - "typ" the specific type of token
+            ```
+                {
+                    "alg" : "HS256",
+                    "typ" : "JWT"
+                }
+            ```
+    - The JWT header is then encoded using Base64 to create the first part of the JWT (a)
+- **JWT Payload**
+    - A JWT payload consists of the data. The payloads data contains claims, and there are three different types of claims.
+        - Registered
+        - Public
+        - Private
+            ```
+                {
+                    "sub" : "1234567890",
+                    "name" : "John doe",
+                    "given_name" : "John",
+                    "family_name" : "Doe",
+                    "email" : "john@gmail.com",
+                    "admin" : true
+                }
+            ```
+    - The JWT payload is then encoded using Base64 to create the second part of the JWT (b)
+- **JWT Signature**
+    - A JWT Signature is created by using the algorithm in the header to hash out the encoded header, encoded payload with a secret.
+    - The secret can be anything, but is saved somewhere on the server that the client does not have access to
+            ```
+               HMACSHA256(
+                base64UrlEncode(header) + "." +
+                base64UrlEncode(payload),
+                secret)
+            ```
+    - The Signature is the third and final part of a JWT (c).
+    
