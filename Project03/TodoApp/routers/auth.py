@@ -11,7 +11,7 @@ from jose import JWTError, jwt
 from datetime import timedelta, datetime, timezone
 
 router = APIRouter(
-    prefix="",
+    prefix="/auth",
     tags=["Auth"]
 )
 
@@ -24,7 +24,7 @@ bcrypt_context = CryptContext(
     deprecated = "auto"
     )
 
-oauth2_bearer = OAuth2PasswordBearer(tokenUrl = 'token')
+oauth2_bearer = OAuth2PasswordBearer(tokenUrl = 'auth/token')
 
 def get_db() :
     db = sessionLocal()
@@ -60,13 +60,19 @@ async def get_current_user(token : Annotated[str, Depends(oauth2_bearer)]) :
         username : str = payload.get('sub')
         user_id : int = payload.get('id')
         if username is None or user_id is None :
-            raise HTTPEXception(status_code = status.HTTP_401_UNAUTHORIZED, detail = 'Could not validate user..')
+            raise HTTPEXception(
+                status_code = status.HTTP_401_UNAUTHORIZED, 
+                detail = 'Could not validate user..'
+            )
         return {
             'username' : username,
             'id' : user_id
         }
     except JWTError :
-        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail = 'Could not Validate user...')
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED, 
+            detail = 'Could not Validate user...'
+        )
     
     
 class CreateUserRequest(BaseModel) :
@@ -107,7 +113,10 @@ async def login_for_access_token(
                 db : db_dependency) :
     user = authenticated_user(form_data.username, form_data.password, db)
     if not user :
-        return 'Failed Authentication'
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED, 
+            detail = 'Could not Validate user...'
+        )
     token = create_access_token(user.username, user.id, timedelta(minutes = 20))
     return {
         'access_token' : token,
