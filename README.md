@@ -104,3 +104,16 @@
             ```
     - The Signature is the third and final part of a JWT (c).
     
+### What is POSTGRESQL :
+- Production ready database
+- Open source Relational database management system
+- Secure
+- Requires a server
+- Scalable
+
+#### How to install PostgreSQL ?
+1. Go to `https://www.postgresql.org/`
+2. Open `Download` tab
+3. Click on `Windows`
+4. Click on `Download the Installer`
+5. Download the latest version
