@@ -6,7 +6,9 @@ from sqlalchemy.orm import Session
 from starlette import status
 from pydantic import BaseModel, Field
 
-router = APIRouter()
+router = APIRouter(
+    prefix="",
+    tags=["Todos"])
 
 def get_db() :
     db = sessionLocal()
