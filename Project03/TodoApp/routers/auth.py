@@ -8,7 +8,10 @@ from sqlalchemy.orm import Session
 from starlette import status
 from fastapi.security import OAuth2PasswordRequestForm
 
-router = APIRouter()
+router = APIRouter(
+    prefix="",
+    tags=["Auth"]
+)
 
 bcrypt_context = CryptContext(
     schemes = ["bcrypt"], 
@@ -41,7 +44,7 @@ class CreateUserRequest(BaseModel) :
     role : str
     
 # ------ Create new User ----------
-@router.post("/auth/", status_code = status.HTTP_201_CREATED)
+@router.post("/register", status_code = status.HTTP_201_CREATED)
 async def create_user(
     db: db_dependency,
     create_user_request : CreateUserRequest
