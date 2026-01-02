@@ -104,3 +104,29 @@
             ```
     - The Signature is the third and final part of a JWT (c).
     
+### What is POSTGRESQL :
+- Production ready database
+- Open source Relational database management system
+- Secure
+- Requires a server
+- Scalable
+
+#### How to install PostgreSQL ?
+1. Go to `https://www.postgresql.org/`
+2. Open `Download` tab
+3. Click on `Windows`
+4. Click on `Download the Installer`
+5. Download the latest version
+
+### What is MYSQL ?
+- Open source Relational databse management system.
+- requires a server
+- production ready
+- scalable
+- secure
+#### How to install MySQL ?
+- Go to `https://www.mysql.com/`
+- Open `Developer Zone` tab
+- Click on `Downloads -> MySQL Community Server`
+- Download mysql
+
