@@ -130,3 +130,23 @@
 - Click on `Downloads -> MySQL Community Server`
 - Download mysql
 
+### What is Alembic ?
+- Alembic is a lightweight database migration tool for when using SQL alchemy.
+- Migration tools allow us to plan, transfer and upgrade resources within our database.
+- Alembic allows you to change a SQLAlchemy database table after it has already been created.
+- Currently SQL Alchemy will only create new database tables for us, not enhance any.
+
+#### How does Alembic work?
+- Alembic provides the creation and invocation of change management scripts.
+- This allows you to be able to create migration environments and be able to change data however you like.
+
+#### Setup Alembic into the project :
+- Install Alembic using `pip install alembic`
+
+#### Alembic commands :
+| Alembic Command | Details |
+|----------------- | ------- |
+|alembic init `<folder name>` | Initializes a new, generic environment |
+| alembic revision -m <message> | Creates a new version of the environment |
+| alembic upgrade <revision #> | Run on upgrade migration to our database |
+| alembic downgrade -1 | Run our downgrade migration to our database |
