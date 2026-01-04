@@ -142,6 +142,7 @@
 
 #### Setup Alembic into the project :
 - Install Alembic using `pip install alembic`
+- initialize alembic environment : `alembic init alembic`
 
 #### Alembic commands :
 | Alembic Command | Details |
@@ -150,3 +151,29 @@
 | alembic revision -m <message> | Creates a new version of the environment |
 | alembic upgrade <revision #> | Run on upgrade migration to our database |
 | alembic downgrade -1 | Run our downgrade migration to our database |
+
+#### Alembic Revisions :
+- Alembic revision is how we create a new alembic file where we can add some type of database upgrade.
+- When we run : `alembic revision -m "create phone number col on users table"`
+- Creates a new file where we can write the upgrade code.
+- Each new version will have a Revision Id
+
+#### Alembic Upgrade ?
+- Alembic upgrade is how we actually run the migration
+```
+    def upgrade() -> None :
+        op.add_column('users', sa.Column('phone_number', sa.String(), nullable=True))
+```
+- Enhances our database to now have a new column within our users tables called `phone_number`.
+- Previous data in the database will not change.
+- To run the upgrade migration : `alembic upgrade <revision id>`
+
+#### Alembic Downgrade ?
+- Alembic downgrade is how we revert a migration
+```
+    def downgrade() -> None :
+        op.drop_column('users', 'phone_number')
+```
+- Reverts our database to remove the last migration change.
+- Previous data within database does not change unless it was on the column `phone_number` because we deleted it.
+- To run the downgrade migration : `alembic downgrade -1`
