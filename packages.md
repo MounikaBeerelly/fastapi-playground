@@ -9,3 +9,4 @@ python-multipart
 psycopg2-binary -> connecting postgres db
 pymysql -> connecting mysql db
 pytest
+python-jose

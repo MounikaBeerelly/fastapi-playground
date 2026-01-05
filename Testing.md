@@ -38,3 +38,32 @@
 - When we write tests for our application, we will create new tests from a new file that matches
 the naming convention of the project.
 - For example : `todos.py` file will be tested by something called `test_todos.py`.
+- Pytest validates
+    - Integers
+    - Instances
+    - Booleans
+    - Types
+    - greater than & less than
+    - Lists
+
+### Test Database :
+- Create a fake database that can store data
+- Create testing dependencies that are separate from our production dependencies.
+- This way we can do integration testing to make sure our entire project is working correctly when we run our tests.
+- App is live, we're going to be using our production dependencies and our production database.
+- When we run our tests, we're going to be using our testing dependencies and our testing database.
+
+#### Testing dependencies :
+1. Create a new file called : `test_todos.py`
+2. Create new database engine for our testing environment
+3. Add the new engine
+4. Add TestingSSessionLocal and Base
+5. Setup `get_testing_db` dependency
+6. Mock our current logged in user for testing
+
+
+
+
+
+
+
