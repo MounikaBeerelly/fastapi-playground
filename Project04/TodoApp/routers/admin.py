@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException, Path
-from models import Todos
-from database import engine, sessionLocal
+from ..models import Todos
+from ..database import engine, sessionLocal
 from typing import Annotated
 from sqlalchemy.orm import Session
 from starlette import status
