@@ -38,3 +38,12 @@
 - When we write tests for our application, we will create new tests from a new file that matches
 the naming convention of the project.
 - For example : `todos.py` file will be tested by something called `test_todos.py`.
+- Pytest validates
+    - Integers
+    - Instances
+    - Booleans
+    - Types
+    - greater than & less than
+    - Lists
+
+### Pytest Objects
