@@ -6,7 +6,13 @@ pydantic
 bcrypt==4.0.1
 passlib
 python-multipart
-psycopg2-binary -> connecting postgres db
-pymysql -> connecting mysql db
+psycopg2-binary 
+pymysql
 pytest
 python-jose
+httpx
+pytest-asyncio
+
+#setup html files
+aiofiles
+jinja2
